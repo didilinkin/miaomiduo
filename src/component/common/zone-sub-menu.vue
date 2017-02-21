@@ -50,10 +50,11 @@
             <p>蕾姆</p>
         </div>
         <ul class="sub-menu-list">
-            <li>全部动态</li>
-            <li>晒喵专区</li>
-            <li>生病问答</li>
+            <li>综合动态</li>
             <li>与我相关</li>
+            <li>晒喵专区</li>
+            <li>有问必答</li>
+            <li>宠物救助</li>
         </ul>
     </div>
 </div>

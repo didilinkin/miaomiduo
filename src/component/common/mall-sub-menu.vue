@@ -1,6 +1,6 @@
 <style>
 
-.sub-menu {
+.mall-sub-menu {
     position: fixed;
     top: 0;
     left: 0;
@@ -9,30 +9,29 @@
     height: 100%;
 }
 
-.sub-menu-box{
+.mall-sub-menu-box{
     width: 55%;
     height: 100%;
     background: rgba(165,215,238,0.6);
 }
-.sub-menu-box .user-info{
+.mall-sub-menu-box .user-info{
     padding-top: 0.4rem;
-    margin-bottom: 1rem;;
 }
-.sub-menu-box .user-info img{
+.mall-sub-menu-box .user-info img{
     width: 60%;
     margin: 0 auto 0.1rem;;
     display: block;
     border-radius: 50%;
 }
-.sub-menu-box .user-info p{
+.mall-sub-menu-box .user-info p{
     text-align: center;
     color: #fff;
     font-size: 0.36rem;
 }
-.sub-menu-list{
+.mall-sub-menu-list{
     margin: 0 10px;
 }
-.sub-menu-list li{
+.mall-sub-menu-list li{
     text-align: center;
     border-bottom: 1px solid #fff;
     font-size: 0.36rem;
@@ -43,13 +42,14 @@
 
 <template>
 
-<div class='sub-menu'>
-    <div class="sub-menu-box" @click="hide">
+<div class='mall-sub-menu' @click="hide">
+    <div class="mall-sub-menu-box">
         <div class="user-info">
             <img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2790396100,129677017&fm=23&gp=0.jpg"/>
             <p>蕾姆</p>
         </div>
-        <ul class="sub-menu-list">
+        <ul class="mall-sub-menu-list">
+            <li>宠物猫粮</li>
             <li>猫罐头/妙鲜包</li>
             <li>猫猫零食</li>
             <li>猫猫医疗</li>
@@ -59,6 +59,11 @@
             <li>猫猫玩具</li>
             <li>猫衣服/猫窝</li>
             <li>美容器材</li>
+        </ul>
+    </div>
+    <div class="mall-sub-class-box">
+        <ul>
+            <li></li>
         </ul>
     </div>
 </div>
