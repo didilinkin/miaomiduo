@@ -1,21 +1,72 @@
-var webpack = require("webpack");
-var path = require("path");
+var path = require('path')
+var webpack = require('webpack')
 
-var DEV = path.resolve(__dirname, "Dev");
-var OUTPUT = path.resolve(__dirname, "output");
-
-var config = {
-  entry: DEV + "/index.jsx",
+module.exports = {
+  entry: './src/main.js',
   output: {
-    path: OUTPUT,
-    filename: "myCode.js"
+    path: path.resolve(__dirname, './dist'),
+    publicPath: '/dist/',
+    filename: 'build.js'
   },
   module: {
-    loaders: [{
-        include: DEV,
-        loader: "babel",
-    }]
-  }
-};
+    rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            scss: ['vue-style-loader','css', 'sass'].join('!')
+          }
+        }
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        query: {presets: ['es2015', 'stage-0']}
+      },
+      {
+        test: /\.(png|jpg|gif|svg|ttf|woff|eot)$/,
+        loader: 'url-loader?limit=100000&name=img/[name].[ext].[hash:8]'
+      }
+    //   {
+    //     test: /\.(png|jpg|gif|svg)$/,
+    //     loader: 'file-loader',
+    //     options: {
+    //       name: '[name].[ext]?[hash]'
+    //     }
+    //   }
+    ]
+  },
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue'
+    }
+  },
+  devServer: {
+    historyApiFallback: true,
+    noInfo: true
+  },
+  devtool: '#eval-source-map'
+}
 
-module.exports = config;
+if (process.env.NODE_ENV === 'production') {
+  module.exports.devtool = '#source-map'
+  // http://vue-loader.vuejs.org/en/workflow/production.html
+  module.exports.plugins = (module.exports.plugins || []).concat([
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"production"'
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+      compress: {
+        warnings: false
+      }
+    }),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true
+    })
+  ])
+}
