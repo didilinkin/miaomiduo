@@ -42,17 +42,6 @@ header p {
     text-align: center;
     line-height: 0.6rem;
 }
-header .rightIcon {
-    display: block;
-    width: 0.6rem;
-    height: 0.6rem;
-    text-align: center;
-    line-height: 0.6rem;
-    position: absolute;
-    z-index: 1;
-    right: 0;
-    top: 0.1rem;
-}
 header .rightTxt {
     display: block;
     width: 1.3rem;
@@ -78,6 +67,14 @@ header .sc {
     left: 0.86rem;
     border-radius: 0.04rem;
 }
+header .rightIcon {
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    right: 0.15rem;
+    top: 0.15rem;
+}
 </style>
 
 <template>
@@ -92,10 +89,8 @@ header .sc {
     </div>
     <p v-if="headConfig.title?headConfig.title:false" class="title">{{headConfig.title}}</p>
     <div v-if="headConfig.sc?headConfig.sc:false" class="sc" @click="emit('showAddMood')">写点什么吧......</div>
-    <a class="rightIcon" v-if="rightIcon&&rightIcon.iconClass" @click="goFn()">
-        <i class="iconfont" :class="rightIcon.iconClass"></i>
-    </a>
-    <a class="rightTxt" v-if="rightIcon&&rightIcon.txt" @click="rIconEvent()">{{rightIcon.txt}}</a>
+    <i v-if="headConfig.rightIcon" class="rightIcon iconfont" :class="headConfig.rightIconClass" @click="emit('showSearch')"></i>
+    <!-- <a class="rightTxt" v-if="rightIcon&&rightIcon.txt" @click="rIconEvent()">{{rightIcon.txt}}</a> -->
 </header>
 
 </template>
@@ -112,31 +107,13 @@ export default {
     }),
     data() {
         return {
-            areaName : false
+            areaName : false,
+            backBtn : true
         }
     },
     methods: {
         backfn: function() {
             this.$router.go(-1)
-        },
-        goFn: function(){
-            switch(this.rightIcon.iconType){
-                case '0':   //回首页
-                    this.$router.push('/index')
-                    break;
-                case '1':   //点击收藏商品
-                    break;
-                case '2':   //点击收藏店铺
-                    break;
-                case '3':   //购物车编辑
-
-                    break;
-                default:
-                    break;
-            }
-        },
-        rIconEvent:function(){
-            this.$emit('rIconEvent');
         },
         emit : function(str){
             this.$emit(str);

@@ -16,7 +16,7 @@
     height: auto;
 }
 
-.searchPage-build header i.icon-back {
+.searchPage-build header i.icon-zuo {
     color: #666666;
     float: left;
     margin-right: 0.1rem;
@@ -85,7 +85,8 @@
 .searchPage-build header a.searchBtn-build {
     margin: 0.05rem 0 0 0.18rem;
     display: inline-block;
-    background: #ff2772;
+    background: #a5d7ee;
+    color:#fff;
     width: 0.72rem;
     line-height: 0.44rem;
     text-align: center;
@@ -139,7 +140,7 @@
 
 <div class='searchPage-build'>
     <header class='clearfix'>
-        <i class='iconfont icon-back' @click="hide"></i>
+        <i class='iconfont icon-zuo' @click="hide"></i>
         <div class='searchBox-build clearfix'>
             <div class="more" v-if="searchType=='tc'" @click="initData.selectShow=!initData.selectShow">
                 {{initData.selectText}}<i class="iconfont icon-down"></i>

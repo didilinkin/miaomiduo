@@ -1,7 +1,7 @@
 <style>
 @import '../static/base.css';
 /*@import 'assets/iconfont/iconfont.css';*/
-@import "http://at.alicdn.com/t/font_mqgt5su5d3b1q0k9.css";
+@import "http://at.alicdn.com/t/font_us4tvj7rh64aq0k9.css";
 </style>
 
 <template>
