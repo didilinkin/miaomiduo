@@ -174,7 +174,7 @@
             </div>
         </div>
     </div>
-</ransition>
+</transition>
 </div>
 
 </template>
