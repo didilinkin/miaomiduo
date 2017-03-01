@@ -73,7 +73,7 @@
 
 <template>
 <div class="index-box">
-    <headnav v-on:showAddMood="addMood=true" v-on:showSubMenu="subMenu=true" v-bind:headConfig="headConfig"></headnav>
+    <headnav v-on:showRight="addMood=true" v-on:showSubMenu="subMenu=true" v-bind:headConfig="headConfig"></headnav>
     <banner v-bind:banner="{styleObj:{height:'3rem'},itemData:getCarousel,dataType:1,filterType:5}" :bannerConfig="bannerConfig"></banner>
     <transition name="subMenu-fade">
         <subMenu v-show="subMenu" v-on:hide="hideSubMenu"></subMenu>
@@ -103,8 +103,10 @@ export default {
     data() {
         return {
             headConfig : {
+                title : "喵zone",
                 subMenu : true,
-                sc : true
+                rightIcon : true,
+                rightIconClass : 'icon-shuxie'
             },
             subMenu    : false,
             addMood    : false,

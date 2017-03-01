@@ -5,7 +5,7 @@
 <template>
 
 <div>
-    <headnav v-bind:headConfig="headConfig" v-on:showSubMenu="subMenu = true" v-on:showSearch="searchActive = true"></headnav>
+    <headnav v-bind:headConfig="headConfig" v-on:showSubMenu="subMenu = true" v-on:showRight="searchActive = true"></headnav>
     <banner v-bind:banner="{styleObj:{height:'3rem'},itemData:getCarousel,dataType:1,filterType:5}" :bannerConfig="bannerConfig"></banner>
     123123
     <transition name="subMenu-fade">

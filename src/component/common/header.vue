@@ -89,7 +89,7 @@ header .rightIcon {
     </div>
     <p v-if="headConfig.title?headConfig.title:false" class="title">{{headConfig.title}}</p>
     <div v-if="headConfig.sc?headConfig.sc:false" class="sc" @click="emit('showAddMood')">写点什么吧......</div>
-    <i v-if="headConfig.rightIcon" class="rightIcon iconfont" :class="headConfig.rightIconClass" @click="emit('showSearch')"></i>
+    <i v-if="headConfig.rightIcon" class="rightIcon iconfont" :class="headConfig.rightIconClass" @click="emit('showRight')"></i>
     <!-- <a class="rightTxt" v-if="rightIcon&&rightIcon.txt" @click="rIconEvent()">{{rightIcon.txt}}</a> -->
 </header>
 

@@ -4,12 +4,10 @@
 
 #footMenu {
     width: 100%;
-    height: 0.88rem;
-    background-color: #f7f7f7;
+    height: 0.8rem;
     position: fixed;
     overflow: hidden;
     bottom: 0rem;
-    border-top: 0.01rem solid #dcdcdc;
     padding: 0 0 0.1rem;
     z-index: 3;
 }
@@ -17,14 +15,18 @@
 #footMenu a {
     display: block;
     float: left;
-    width: 20%;
-    height: 100%;
+    width: 1.5rem;
+    background: #fff;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: 1px solid #a5d7ee;
+    box-sizing:border-box;
 }
 
 #footMenu a i {
     text-align: center;
     font-size: 0.4rem;
-    color: #666666;
+    color: #a5d7ee;
     /*background: url('../../../src/assets/images/icn/home.png') no-repeat;
     background-size: 0.56rem 0.44rem;*/
 }
@@ -32,23 +34,6 @@
 #footMenu .mall i {
     position: relative;
     top: -0.06rem;
-    /*background: url('../../../src/assets/images/icn/mall.png') no-repeat;
-    background-size: 0.56rem 0.44rem;*/
-}
-
-#footMenu .tcshop i {
-    /*background: url('../../../src/assets/images/icn/tc.png') no-repeat;
-    background-size: 0.56rem 0.44rem;*/
-}
-
-#footMenu .shopcar i {
-    /*background: url('../../../src/assets/images/icn/car.png') no-repeat;
-    background-size: 0.56rem 0.44rem;*/
-}
-
-#footMenu .user i {
-    /*background: url('../../../src/assets/images/icn/user.png') no-repeat;
-    background-size: 0.56rem 0.44rem;*/
 }
 
 #footMenu a i{
@@ -59,13 +44,19 @@
 }
 
 #footMenu a p{
-    color: #666666;
+    color: #a5d7ee;
     font-size: 0.24rem;
     text-align: center;
 }
 
 #footMenu a p.cur{
-    color: #a5d7ee;
+    color: #fff;
+}
+#footMenu a i.cur{
+    color: #fff;
+}
+#footMenu a.cur{
+    background: #a5d7ee;
 }
 
 .foot-enter-active,
@@ -83,23 +74,23 @@
 <template>
     <transition name="foot">
         <div id="footMenu" v-if="true">
-            <router-link to="/index" class="index" @click="heiline(1)">
+            <router-link to="/index" class="index" :class="[iscur==1 ?'cur':'']" @click="heiline(1)">
                 <i class="iconfont icon-cat" :class="[iscur==1 ?'cur':'']"></i>
                 <p :class="[iscur==1 ?'cur':'']">喵zone</p>
             </router-link>
-            <router-link to="/mall" class="mall" @click="heiline(2)">
+            <router-link to="/mall" class="mall" :class="[iscur==2 ?'cur':'']" @click="heiline(2)">
                 <i class="iconfont icon-pussy" :class="[iscur==2 ?'cur':'']"></i>
                 <p :class="[iscur==2 ?'cur':'']">喵商城</p>
             </router-link>
-            <router-link to="/tcshop" class="tcshop" @click="heiline(3)">
+            <router-link to="/tcshop" class="tcshop" :class="[iscur==3 ?'cur':'']" @click="heiline(3)">
                 <i class="iconfont icon-cat1" :class="[iscur==3 ?'cur':'']"></i>
                 <p :class="[iscur==3 ?'cur':'']">喵服务</p>
             </router-link>
-            <router-link to="/shopCart" class="shopcar" @click="heiline(4)">
+            <router-link to="/shopCart" class="shopcar" :class="[iscur==4 ?'cur':'']" @click="heiline(4)">
                 <i class="iconfont icon-ziyuan" :class="[iscur==4 ?'cur':'']"></i>
                 <p :class="[iscur==4 ?'cur':'']">购物车</p>
             </router-link>
-            <router-link to="/user" class="user" @click="heiline(5)">
+            <router-link to="/user" class="user" :class="[iscur==5 ?'cur':'']" @click="heiline(5)">
                 <i class="iconfont icon-mood" :class="[iscur==5 ?'cur':'']"></i>
                 <p :class="[iscur==5 ?'cur':'']">铲屎官</p>
             </router-link>
