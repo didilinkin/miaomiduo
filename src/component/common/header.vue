@@ -85,7 +85,7 @@ header .rightIcon {
     <i v-if="headConfig.subMenu?headConfig.subMenu:false" @click="emit('showSubMenu')" class="subMenu iconfont icon-liebiao"></i>
     <div class="areaName" v-show="headConfig.areaName?headConfig.areaName:false">
         <router-link to="/selectArea"  id="areaName">{{positionData.city}}</router-link>
-        <i class="iconfont icon-down"></i>
+        <i class="iconfont icon-xia"></i>
     </div>
     <p v-if="headConfig.title?headConfig.title:false" class="title">{{headConfig.title}}</p>
     <div v-if="headConfig.sc?headConfig.sc:false" class="sc" @click="emit('showAddMood')">写点什么吧......</div>

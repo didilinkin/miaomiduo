@@ -18,12 +18,15 @@
 
 <div class="tc-shop-list">
     <div class="fixed-header">
-        <headnav v-bind:headConfig="headConfig"></headnav>
+        <headnav v-bind:headConfig="headConfig" v-on:showSearch="searchActive = true"></headnav>
         <shop-filter></shop-filter>
     </div>
     <shop-list v-bind:shop-list="tcShopList"></shop-list>
     <back-top :show="true"></back-top>
     <loading  :show="shopListLoading"></loading>
+    <transition name="search-fade">
+        <search v-bind:searchType="'mall'" v-show="searchActive" v-on:hide="searchActive = false"></search>
+    </transition>
 </div>
 
 </template>
@@ -39,8 +42,9 @@ import loading  from './../common/loading.vue'
 import shopFilter from './shop-filter.vue'
 import shopList from './shop-list.vue'
 import backTop from './../common/back-top.vue'
+import search   from './../common/search.vue'
 const components = {
-    headnav, loading, shopFilter, shopList, backTop
+    headnav, loading, shopFilter, shopList, backTop, search
 }
 export default {
     computed: mapGetters({
@@ -54,9 +58,12 @@ export default {
     data() {
         return {
             pagetitle: "同城",
+            searchActive : false,
             headConfig : {
                 title : "喵服务",
-                areaName : true
+                areaName : true,
+                rightIcon : true,
+                rightIconClass : 'icon-search'
             }
         }
     },
